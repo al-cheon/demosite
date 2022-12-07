@@ -4,11 +4,11 @@
         <div class="container"> 
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1"> 
-                    {{ site.url }}
+                    
                     {% for post in site.posts %}
-                    {{ post.url }}
+                    {{ post.url | prepend: site.baseurl}}
                     <!-- Blog Post -->
-                    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+                    <h2><a href="{{ post.url | prepend: site.baseurl}}">{{ post.title }}</a></h2>
 
                     <p class="lead">by <a href="#">{{ post.author }}</a></p>
                     <p><span class="glyphicon glyphicon-time"></span> Posted {{ post.date | date: "%B %d, %Y" }}</p>             
@@ -21,7 +21,7 @@
 
                     {{ post.excerpt }}
                     
-                    <a class="btn btn-primary" href="{{ post.url }}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    <a class="btn btn-primary" href="{{ post.url | prepend: site.baseurl}}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
                     <hr> 
 
                     {% endfor %}
